@@ -14,7 +14,5 @@ Copy to your openFrameworks/addons folder.
 
 Compatibility
 ---------
-openFrameworks 0.80 +
-tested on OSX and Ubuntu 12.04-64bits
-
+openFrameworks 0.90
 
