@@ -35,7 +35,7 @@ void ofApp::draw(){
 	ofNoFill();
 	
     float chSz = bufferSize/3;
-	// draw the left channel:
+	// draw the left input channel:
 	{
         ofPushStyle();
         ofPushMatrix();
@@ -54,7 +54,7 @@ void ofApp::draw(){
         ofPopMatrix();
         ofPopStyle();
 	}
-	// draw the right channel:
+	// draw the right input channel:
 	{
         ofPushStyle();
 		ofPushMatrix();
@@ -74,14 +74,12 @@ void ofApp::draw(){
         ofPopStyle();
 	}
     
-	///Draw FilterBank
+	//Draw FilterBank
 	{
         ofPushStyle();
         ofPushMatrix();
         ofTranslate (100,250,0);
-        //*
-        filterBank.draw(800,400);
-        //*
+            filterBank.draw(800,400);
         ofPopMatrix();
         ofPopStyle();
 	}
@@ -95,7 +93,10 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::audioIn(float * input, int bufferSize, int nChannels){
-        	filterBank.analyze(input);
+    
+    //Analyze Input Buffer with ofxFilterbank
+    filterBank.analyze(input);
+    
 }
 
 
@@ -117,11 +118,9 @@ void ofApp::keyPressed  (int key){
 
 //--------------------------------------------------------------
 void ofApp::exit(){
-    printf("------- CLOSING...\n");
     soundStream.stop();
     soundStream.close();
     filterBank.exit();
-    cout<<"CLOSED SUCCESSFULLY!"<<endl;
 }
 
 //--------------------------------------------------------------
