@@ -11,7 +11,7 @@
 #define SR 44100
 
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
